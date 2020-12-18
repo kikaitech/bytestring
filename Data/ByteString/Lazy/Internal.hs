@@ -13,7 +13,7 @@
 -- Maintainer  : dons00@gmail.com, duncan@community.haskell.org
 -- Stability   : unstable
 -- Portability : non-portable
--- 
+--
 -- A module containing semi-public 'ByteString' internals. This exposes
 -- the 'ByteString' representation and low level construction functions.
 -- Modules which extend the 'ByteString' system will need to use this module
@@ -202,12 +202,12 @@ foldlChunks f z = go z
 
 -- | The chunk size used for I\/O. Currently set to 32k, less the memory management overhead
 defaultChunkSize :: Int
-defaultChunkSize = 1024 * k - chunkOverhead
+defaultChunkSize = 2048 * k - chunkOverhead
    where k = 1024
 
 -- | The recommended chunk size. Currently set to 4k, less the memory management overhead
 smallChunkSize :: Int
-smallChunkSize = 128 * k - chunkOverhead
+smallChunkSize = 256 * k - chunkOverhead
    where k = 1024
 
 -- | The memory management overhead. Currently this is tuned for GHC only.
