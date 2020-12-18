@@ -202,12 +202,12 @@ foldlChunks f z = go z
 
 -- | The chunk size used for I\/O. Currently set to 32k, less the memory management overhead
 defaultChunkSize :: Int
-defaultChunkSize = 32 * k - chunkOverhead
+defaultChunkSize = 1024 * k - chunkOverhead
    where k = 1024
 
 -- | The recommended chunk size. Currently set to 4k, less the memory management overhead
 smallChunkSize :: Int
-smallChunkSize = 4 * k - chunkOverhead
+smallChunkSize = 128 * k - chunkOverhead
    where k = 1024
 
 -- | The memory management overhead. Currently this is tuned for GHC only.
